@@ -2,10 +2,7 @@ import { NavLink } from 'react-router-dom'
 
 import FormLogin from "../components/FormLogin"
 
-import { FaUser } from 'react-icons/fa'
-import { FaEnvelope } from 'react-icons/fa'
-import {FaLock} from 'react-icons/fa'
-
+import { FaLock , FaUser , FaEnvelope } from 'react-icons/fa'
 
 const FormAddUser = () => {
   return (

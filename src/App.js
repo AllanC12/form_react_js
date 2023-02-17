@@ -11,11 +11,12 @@ function App() {
    return (
     <div className="App">
        <BrowserRouter>
-        <FormLogin/> 
-          <Routes>  
-             <Route path="/FormAddUser" element={<FormAddUser/>}/>
-          </Routes>
+            <FormLogin/> 
+               <Routes>
+                  <Route path='/adduser' element={<FormAddUser/>}/>   
+               </Routes> 
        </BrowserRouter>
+ 
     </div>
   );
 }
