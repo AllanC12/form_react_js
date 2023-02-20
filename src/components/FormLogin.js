@@ -7,7 +7,8 @@ import { useFetch } from '../hooks/useFetch';
 import { NavLink } from 'react-router-dom'
 
 //Icons
-import { FaLock , FaUser , FaEnvelope } from 'react-icons/fa'
+import { FaLock , FaUser } from 'react-icons/fa'
+import { BiHide , BiShow } from 'react-icons/bi'
 
 //Components
 import FormAddUser from './FormAddUser';
@@ -16,15 +17,26 @@ const FormLogin = () => {
   //URL Json-server
   const url = `http://localhost:3000/users`
 
+  //users: usuários cadastrados
+  //insertUser: método vindo do hook de fetch para cadastrar novo usuário
+  const { data:users } = useFetch(url)
 
-  
   //valores para os campos de login
   const [nameUser , setNameUser] = useState('')
   const [passwordUser , setPasswordUser ] = useState('')
 
-  //users: usuários cadastrados
-  //insertUser: método vindo do hook de fetch para cadastrar novo usuário
-  const { data:users } = useFetch(url)
+  //referencia para input de senha
+  const inputPassword = useRef()
+  const [showCharPassword, setShowCharPassword] = useState(true)
+
+  const showPassword = () => {
+    inputPassword.current.setAttribute('type','text')
+    setShowCharPassword(false)
+  }
+  const hidePassword = () => {
+    inputPassword.current.setAttribute('type','password')
+    setShowCharPassword(true)
+  }
 
    const loginUser = (e) => {
         e.preventDefault()
@@ -40,7 +52,7 @@ const FormLogin = () => {
         
         if(userValidate[0].name === nameUser){
            if(userValidate[0].password === passwordUser){
-              alert(`Seja Bem vindo ${nameUser}`)
+              alert(`Seja Bem vindo(a) ${nameUser}`)
            }
         }
 
@@ -77,7 +89,8 @@ const FormLogin = () => {
                   <input  
                     required 
                     onChange={(e) => setNameUser(e.target.value)} 
-                    type="text" placeholder="| Username"
+                    type="text" 
+                    placeholder="| Username"
                     value={nameUser}
                   />
               </div>
@@ -85,11 +98,16 @@ const FormLogin = () => {
               <div className="wraper">
                   <FaLock/>
                   <input  
+                    ref={inputPassword}
                     required 
                     onChange={(e)=> setPasswordUser(e.target.value)} 
-                    type="password" placeholder="| Password"
+                    type="password" 
+                    placeholder="| Password"
                     value={passwordUser}
                   />
+                  {showCharPassword && <BiShow id="visibility-password" onClick={showPassword}/>}
+                  {!showCharPassword && <BiHide id="visibility-password" onClick={hidePassword}/>}
+                  
               </div>
 
                     

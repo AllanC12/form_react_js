@@ -105,6 +105,12 @@ div.wraper-forms{
    color: white;
  }
 
+ .wraper #visibility-password{
+  position:absolute;
+  left: 90%;
+  cursor: pointer;
+}
+
  input[type="submit"]{
     color: white;
     background-color: #0f353b;

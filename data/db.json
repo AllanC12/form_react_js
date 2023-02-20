@@ -25,46 +25,34 @@
       "id": 4
     },
     {
-      "name": "julio",
-      "email": "julio12@gmail.com",
-      "password": "julio1212",
-      "id": 5
-    },
-    {
-      "name": "jorge",
-      "email": "jorge12@gmail.com",
-      "password": "jorge1212",
+      "name": "celso",
+      "email": "celso12@gmail.com",
+      "password": "celso1212",
       "id": 6
     },
     {
-      "name": "juvenal",
-      "email": "juvenal12@gmail.com",
-      "password": "juvenal1212",
+      "name": "geraldo",
+      "email": "geraldo12@gmail.com",
+      "password": "geraldo1212",
       "id": 7
     },
     {
-      "name": "juvenal",
-      "email": "juvenal12@gmail.com",
-      "password": "juvenal1212",
+      "name": "roberto",
+      "email": "roberto12@gmail.com",
+      "password": "roberto1212",
       "id": 8
     },
     {
-      "name": "juvenal",
-      "email": "juvenal12@gmail.com",
-      "password": "juvenal1212",
+      "name": "gilson",
+      "email": "gilson12@gmail.com",
+      "password": "gilson1212",
       "id": 9
     },
     {
-      "name": "juvenal",
-      "email": "juvenal12@gmail.com",
-      "password": "juvenal1212",
+      "name": "gertrudes",
+      "email": "gertrudes12@gmail.com",
+      "password": "gertrudes1212",
       "id": 10
-    },
-    {
-      "name": "juvenal",
-      "email": "juvenal12@gmail.com",
-      "password": "juvenal1212",
-      "id": 11
     }
   ]
 }

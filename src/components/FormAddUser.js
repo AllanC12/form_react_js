@@ -5,6 +5,7 @@ import { useFetch } from '../hooks/useFetch'
 import { useNavigate } from 'react-router-dom'
 //Icons 
 import { FaLock , FaUser , FaEnvelope } from 'react-icons/fa'
+import { BiHide , BiShow } from 'react-icons/bi'
 
 const FormAddUser = () => {
  //URL Json-server
@@ -46,10 +47,29 @@ const FormAddUser = () => {
        setEmailUser('')
        setAddPasswordUser('')
        setValidatePassword('')
-
+       
      }
 
+     setTimeout(()=>{
+        navigate('/')
+     },1000)
   }
+
+    //referencia para input de senha
+    const inputPassword = useRef()
+    const confirmInputPassword = useRef()
+    const [showCharPassword, setShowCharPassword] = useState(true)
+  
+    const showPassword = () => {
+      inputPassword.current.setAttribute('type','text')
+      confirmInputPassword.current.setAttribute('type','text')
+      setShowCharPassword(false)
+    }
+    const hidePassword = () => {
+      inputPassword.current.setAttribute('type','password')
+      confirmInputPassword.current.setAttribute('type','password')
+      setShowCharPassword(true)
+    }
 
   return (
     <div className="wraper-forms">
@@ -83,22 +103,28 @@ const FormAddUser = () => {
 
         <div className="wraper">
             <FaLock/>
-            <input 
+            <input
+            ref={inputPassword} 
             required onChange={(e)=>setAddPasswordUser(e.target.value)} 
             type="password" 
             placeholder="| Password"
             value={addPasswordUser}
             />
+            {showCharPassword && <BiShow id="visibility-password" onClick={showPassword}/>}
+            {!showCharPassword && <BiHide id="visibility-password" onClick={hidePassword}/>}
         </div>
 
         <div className="wraper">
             <FaLock/>
-            <input 
+            <input
+            ref={confirmInputPassword} 
             required onChange={(e)=> setValidatePassword(e.target.value)} 
             type="password" 
             placeholder="| Confirm the password"
             value={validatePassword}
             />
+            {showCharPassword && <BiShow id="visibility-password" onClick={showPassword}/>}
+            {!showCharPassword && <BiHide id="visibility-password" onClick={hidePassword}/>}
         </div>
 
             <input type="submit" value="Create User" />
