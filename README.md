@@ -3,6 +3,8 @@
    <img src="https://user-images.githubusercontent.com/112294367/220179906-bbc033e9-303a-4bf1-b97f-c783ee50a581.png"/>
 </div>
 
+Formulário de login e cadastro de usuário feito com a lib ReactJS. A autenticação de usuário é feita através da verificaçao no JSON server instalado no projeto.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
