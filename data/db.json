@@ -1,9 +1,16 @@
 {
-    "users":[
-        {
-            "name": "Allan",
-            "email": "allan@gmail.com",
-            "password": "allan1212"
-        }
-    ]
+  "users": [
+    {
+      "name": "Allan",
+      "email": "allan@gmail.com",
+      "password": "allan1212",
+      "id": 1
+    },
+    {
+      "name": "ana",
+      "email": "ana15@gmail.com",
+      "password": "ana1212",
+      "id": 2
+    }
+  ]
 }

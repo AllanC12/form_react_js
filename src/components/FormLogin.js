@@ -10,12 +10,16 @@ import { FaLock , FaUser , FaEnvelope } from 'react-icons/fa'
 
 //Components
    
-const FormLogin = ({loginUser,setNameUser , setPasswordUser , addNewUser , 
-  setNewUser , setNewPasswordUser , setEmailUser , setValidatePassword
+const FormLogin = ({ nameUser , passwordUser , loginUser, 
+  setNameUser , setPasswordUser , addNewUser , 
+  setNewUser , setAddPasswordUser , setEmailUser , setValidatePassword ,
+  newUser , emailUser , addPasswordUser , validatePassword
 } ) => {
 
   const form_login = useRef()
   const form_add_user = useRef()
+
+  const checkRememberUser = useRef()
   const [valueBtn,setValueBtn] = useState('Login')
 
   const handleForm = (element) => {
@@ -35,6 +39,8 @@ const FormLogin = ({loginUser,setNameUser , setPasswordUser , addNewUser ,
      }
 
   }
+
+
 
    return (
       <div className="wraper-forms" >
@@ -60,18 +66,28 @@ const FormLogin = ({loginUser,setNameUser , setPasswordUser , addNewUser ,
 
               <div className="wraper">
                   <FaUser/>
-                  <input  required onChange={(e) => setNameUser(e.target.value)} type="text" placeholder="| Username"/>
+                  <input  
+                    required 
+                    onChange={(e) => setNameUser(e.target.value)} 
+                    type="text" placeholder="| Username"
+                    value={nameUser}
+                  />
                 </div>
 
                 <div className="wraper">
                   <FaLock/>
-                  <input  required onChange={(e)=> setPasswordUser(e.target.value)} type="password" placeholder="| Password"/>
+                  <input  
+                    required 
+                    onChange={(e)=> setPasswordUser(e.target.value)} 
+                    type="password" placeholder="| Password"
+                    value={passwordUser}
+                  />
                 </div>
 
                     
                   <div className="user-data">
                     <label>
-                      <input type="checkbox" />
+                      <input ref={checkRememberUser} type="checkbox" />
                         Remember me?
                     </label>
                   </div>
@@ -84,22 +100,43 @@ const FormLogin = ({loginUser,setNameUser , setPasswordUser , addNewUser ,
 
           <div className="wraper">
               <FaUser/>
-              <input required onChange={(e)=>setNewUser(e.target.value)} type="text" placeholder="| Username"/>
+              <input
+                required onChange={(e)=>setNewUser(e.target.value)}
+                type="text" 
+                placeholder="| Username"
+                value={newUser}
+              />
            </div>
 
             <div className="wraper">
               <FaEnvelope/>
-              <input required onChange={(e)=>setEmailUser(e.target.value)} type="text" placeholder="| Your email"/>
+              <input 
+                required 
+                onChange={(e)=>setEmailUser(e.target.value)} 
+                type="email" 
+                placeholder="| Your email"
+                value={emailUser}
+              />
             </div>
 
             <div className="wraper">
               <FaLock/>
-              <input required onChange={(e)=>setNewPasswordUser(e.target.value)} type="password" placeholder="| Password"/>
+              <input 
+                required onChange={(e)=>setAddPasswordUser(e.target.value)} 
+                type="password" 
+                placeholder="| Password"
+                value={addPasswordUser}
+              />
             </div>
 
             <div className="wraper">
               <FaLock/>
-              <input required onChange={(e)=> setValidatePassword(e.target.value)} type="password" placeholder="| Confirm the password"/>
+              <input 
+                required onChange={(e)=> setValidatePassword(e.target.value)} 
+                type="password" 
+                placeholder="| Confirm the password"
+                value={validatePassword}
+              />
             </div>
             
             <input type="submit" value={valueBtn} />

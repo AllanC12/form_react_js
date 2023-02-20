@@ -6,69 +6,92 @@ import FormLogin from './components/FormLogin';
 
 import { useFetch } from './hooks/useFetch';
 
-import { useState } from 'react';
+import { useState , useRef} from 'react';
 
 function App() {
 
    const url = `http://localhost:3000/users`
-
+ 
    const { data:users , insertUser } = useFetch(url)
 
- 
-   const [nameUser , setNameUser] = useState(null)
-   const [passwordUser , setPasswordUser ] = useState(null)
+   //campos de login
+   const [nameUser , setNameUser] = useState('')
+   const [passwordUser , setPasswordUser ] = useState('')
+   const checkRemeberUser = useRef()
 
-   const [newUser,setNewUser] = useState(null)
-   const [emailUser , setEmailUser ] = useState(null)
-   const [newPasswordUser , setNewPasswordUser ] = useState(null)
-   const [validatePassword , setValidatePassword] = useState(null)
+   //campos de cadastro de usuário
+   const [newUser,setNewUser] = useState('')
+   const [emailUser , setEmailUser ] = useState('')
+   const [addPasswordUser , setAddPasswordUser ] = useState('')
+   const [validatePassword , setValidatePassword] = useState('')
 
     const loginUser = (e) => {
          e.preventDefault()
 
-         if(nameUser === null || passwordUser === null){
-            alert('insira informações de login')
+         const userValidate = users.filter(user => (
+            user.name === nameUser && user.password === passwordUser
+         ))
+
+         if(userValidate.length === 0){
+            alert(`Faça seu cadastro ou verifique se os dados estão corretos`)
+            return 
+         }
+         
+         if(userValidate[0].name === nameUser){
+            if(userValidate[0].password === passwordUser){
+               alert(`Seja Bem vindo ${nameUser}`)
+            }
          }
 
-         
-         users && users.forEach((user)=>(
-            nameUser === user.name ? (
-               passwordUser === user.password ? (
-                  alert(`Seja bem vindo ${user.name}`)
-               ) : (
-                  alert('senha incorreta')
-               )
-            ) :(
-               alert('usuário não encontrado =(')
-            )
-         ))
+ 
+         setNameUser('')
+         setPasswordUser('')
     }
 
+ 
+   const addNewUser = async (e) => {
+      e.preventDefault()
 
-    const addNewUser = (e) => {
-         e.preventDefault()
-
+      if(!newUser || !emailUser || !addPasswordUser){
+         alert('preencha todos os campos')
+      }else if(addPasswordUser !== validatePassword){
+         alert('senhas incompatíveis')
+         return 
+      }else{
          const user = {
-            "name": newUser,
-            "email":emailUser,
-            "password":newPasswordUser
+            name: newUser,
+            email:emailUser,
+            password:addPasswordUser
          }
 
          insertUser(user,"POST")
+         alert('Usuário cadastrado com sucesso =)')
+         
+         setNewUser('')
+         setEmailUser('')
+         setAddPasswordUser('')
+         setValidatePassword('')
+      }
 
     }
 
    return (
     <div className="App">
        <BrowserRouter>
-           <FormLogin setNameUser={setNameUser} 
+           <FormLogin nameUser={nameUser}
+                      passwordUser={passwordUser}
+                       setNameUser={setNameUser} 
                       setPasswordUser={setPasswordUser} 
                       loginUser={loginUser}
                       addNewUser={addNewUser}
                       setNewUser={setNewUser}
-                      setNewPasswordUser={setNewPasswordUser}
                       setEmailUser={setEmailUser}
+                      setAddPasswordUser={setAddPasswordUser}
                       setValidatePassword={setValidatePassword}
+                      newUser={newUser}
+                      emailUser={emailUser}
+                      addPasswordUser={addPasswordUser}
+                      validatePassword={validatePassword}
             /> 
        </BrowserRouter>
     </div>

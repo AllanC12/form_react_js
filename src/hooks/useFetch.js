@@ -12,7 +12,7 @@ export const useFetch = ( url ) => {
            setConfig({
               method: "POST",
               headers:{
-                "content-type":"application/json"
+                "content-type": "application/json"
               },
               body: JSON.stringify(data)
            })
@@ -43,7 +43,7 @@ export const useFetch = ( url ) => {
             createNewUser()
        }
 
-    },[url,config])
+    },[url,config,method])
 
         
         return { data , insertUser }
