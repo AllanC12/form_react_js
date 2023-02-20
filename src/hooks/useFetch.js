@@ -46,5 +46,5 @@ export const useFetch = ( url ) => {
     },[url,config,method])
 
         
-        return { data , insertUser }
+    return { data , insertUser }
 }

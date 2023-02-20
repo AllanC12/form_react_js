@@ -11,6 +11,60 @@
       "email": "ana15@gmail.com",
       "password": "ana1212",
       "id": 2
+    },
+    {
+      "name": "Marcelo",
+      "email": "marcelo17@gmail.com",
+      "password": "marcelo2525",
+      "id": 3
+    },
+    {
+      "name": "Marcia",
+      "email": "marcia25@gmail.com",
+      "password": "marcia1212",
+      "id": 4
+    },
+    {
+      "name": "julio",
+      "email": "julio12@gmail.com",
+      "password": "julio1212",
+      "id": 5
+    },
+    {
+      "name": "jorge",
+      "email": "jorge12@gmail.com",
+      "password": "jorge1212",
+      "id": 6
+    },
+    {
+      "name": "juvenal",
+      "email": "juvenal12@gmail.com",
+      "password": "juvenal1212",
+      "id": 7
+    },
+    {
+      "name": "juvenal",
+      "email": "juvenal12@gmail.com",
+      "password": "juvenal1212",
+      "id": 8
+    },
+    {
+      "name": "juvenal",
+      "email": "juvenal12@gmail.com",
+      "password": "juvenal1212",
+      "id": 9
+    },
+    {
+      "name": "juvenal",
+      "email": "juvenal12@gmail.com",
+      "password": "juvenal1212",
+      "id": 10
+    },
+    {
+      "name": "juvenal",
+      "email": "juvenal12@gmail.com",
+      "password": "juvenal1212",
+      "id": 11
     }
   ]
 }
