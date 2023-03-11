@@ -1,5 +1,5 @@
 //CSS
-import './css_components/FormLogin.css'
+import './css_components/Form.css'
 
 //Hooks
 import { useRef , useState } from 'react'
@@ -15,12 +15,13 @@ const FormLogin = () => {
   const url = `http://localhost:3000/users`
 
   //users: usuários cadastrados
-  //insertUser: método vindo do hook de fetch para cadastrar novo usuário
-  const { data:users } = useFetch(url)
+   const { data:users } = useFetch(url)
 
   //valores para os campos de login
   const [nameUser , setNameUser] = useState('')
   const [passwordUser , setPasswordUser ] = useState('')
+  const [error,setError] = useState('')
+  const [successMessage,setSuccessMessage] = useState('')
 
   //referencia para input de senha
   const inputPassword = useRef()
@@ -48,14 +49,16 @@ const FormLogin = () => {
 
         if(userNameValidate.length > 0){
           if(userPasswordValidate.length > 0){
-            alert(`Seja bem vindo(a) ${nameUser}`)
+            setError('')
+            setSuccessMessage(`Seja bem vindo(a) ${nameUser}`)
           }else{
-            alert(`Senha incorreta`)
+            setError(`Senha incorreta`)
+            return
           }
         }else{
-          alert(`Nome de usuário não encontrado`)
+          setError(`Nome de usuário não encontrado`)
+          return
         }
-
 
 
         setNameUser('')
@@ -120,6 +123,8 @@ const FormLogin = () => {
                   </div>
 
                 <input type="submit" value="Login" />
+                {error && <div className='error'><p>{error}</p></div>}
+                {!error &&< div className='success'><p>{successMessage}</p></div>}
 
             </form>
 

@@ -129,3 +129,33 @@ div.wraper-forms{
   input[type="submit"]:hover{
     background-color:#0b272b;
   }
+
+  .error{
+    margin-top: 5px;
+    text-align: center;
+    width: 100%;
+    background-color: #fc656d;
+    border: 1px solid #fa0f1b;
+    border-radius: 5px;
+    padding: 5px;
+  }
+
+  .error p{
+    font-size: 18px;
+    color: #fa0f1b;
+  }
+
+  .success{
+    margin-top: 5px;
+    text-align: center;
+    width: 100%;
+    background-color: #56f07d;
+    border: 1px solid #11ab38;
+    border-radius: 5px;
+    padding: 5px;
+  }
+
+  .success p{
+    font-size: 18px;
+    color: #11ab38;
+  }
