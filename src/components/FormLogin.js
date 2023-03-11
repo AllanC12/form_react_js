@@ -53,10 +53,12 @@ const FormLogin = () => {
             setSuccessMessage(`Seja bem vindo(a) ${nameUser}`)
           }else{
             setError(`Senha incorreta`)
+            setSuccessMessage('')
             return
           }
         }else{
           setError(`Nome de usuário não encontrado`)
+          setSuccessMessage('')
           return
         }
 
@@ -124,7 +126,7 @@ const FormLogin = () => {
 
                 <input type="submit" value="Login" />
                 {error && <div className='error'><p>{error}</p></div>}
-                {!error &&< div className='success'><p>{successMessage}</p></div>}
+                {successMessage &&< div className='success'><p>{successMessage}</p></div>}
 
             </form>
 
