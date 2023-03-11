@@ -9,9 +9,6 @@ import { NavLink } from 'react-router-dom'
 //Icons
 import { FaLock , FaUser } from 'react-icons/fa'
 import { BiHide , BiShow } from 'react-icons/bi'
-
-//Components
-import FormAddUser from './FormAddUser';
    
 const FormLogin = () => {
   //URL Json-server
@@ -41,20 +38,24 @@ const FormLogin = () => {
    const loginUser = (e) => {
         e.preventDefault()
 
-        const userValidate = users.filter(user => (
-           user.name === nameUser && user.password === passwordUser
+        const userNameValidate = users.filter(user => (
+           user.name === nameUser
         ))
 
-        if(userValidate.length === 0){
-           alert(`Faça seu cadastro ou verifique se os dados estão corretos`)
-           return 
+        const userPasswordValidate = users.filter(user => (
+          user.password === passwordUser
+        ))
+
+        if(userNameValidate.length > 0){
+          if(userPasswordValidate.length > 0){
+            alert(`Seja bem vindo(a) ${nameUser}`)
+          }else{
+            alert(`Senha incorreta`)
+          }
+        }else{
+          alert(`Nome de usuário não encontrado`)
         }
-        
-        if(userValidate[0].name === nameUser){
-           if(userValidate[0].password === passwordUser){
-              alert(`Seja Bem vindo(a) ${nameUser}`)
-           }
-        }
+
 
 
         setNameUser('')
