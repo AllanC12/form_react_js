@@ -18,6 +18,8 @@ const FormAddUser = () => {
  const [emailUser , setEmailUser ] = useState('')
  const [addPasswordUser , setAddPasswordUser ] = useState('')
  const [validatePassword , setValidatePassword] = useState('')
+ const [error,setError] = useState('')
+ const [successMessage,setSuccessMessage] = useState('')
 
  //Hook de fetch para inserção de usuário no json-server
  const { insertUser } = useFetch(url)
@@ -28,11 +30,12 @@ const FormAddUser = () => {
     e.preventDefault()
 
     if(!newUser || !emailUser || !addPasswordUser){
-       alert('preencha todos os campos')
+       setError('preencha todos os campos')
     }else if(addPasswordUser !== validatePassword){
-       alert('senhas incompatíveis')
+       setError('senhas incompatíveis')
        return 
     }else{
+      setError('')
        const user = {
           name: newUser,
           email:emailUser,
@@ -41,7 +44,7 @@ const FormAddUser = () => {
 
        insertUser(user,"POST")
 
-       alert('Usuário cadastrado com sucesso =)')
+       setSuccessMessage('Usuário cadastrado com sucesso')
        
        setNewUser('')
        setEmailUser('')
@@ -52,7 +55,7 @@ const FormAddUser = () => {
 
      setTimeout(()=>{
         navigate('/')
-     },1000)
+     },2000)
   }
 
     //referencia para input de senha
@@ -127,8 +130,9 @@ const FormAddUser = () => {
             {!showCharPassword && <BiHide id="visibility-password" onClick={hidePassword}/>}
         </div>
 
-            <input type="submit" value="Create User" />
-
+            <input type="submit" value="Create User"/>
+            {error && <div className="error"><p>{error}</p></div>}
+            {successMessage && <div className="success"><p>{successMessage}</p></div>}
          </form>
    </div>
 

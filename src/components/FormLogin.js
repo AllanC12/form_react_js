@@ -126,7 +126,7 @@ const FormLogin = () => {
 
                 <input type="submit" value="Login" />
                 {error && <div className='error'><p>{error}</p></div>}
-                {successMessage &&< div className='success'><p>{successMessage}</p></div>}
+                {successMessage && <div className='success'><p>{successMessage}</p></div>}
 
             </form>
 
