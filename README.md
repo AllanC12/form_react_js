@@ -3,7 +3,7 @@
    <img src="https://user-images.githubusercontent.com/112294367/220179906-bbc033e9-303a-4bf1-b97f-c783ee50a581.png"/>
 </div>
 
-Formulário de login e cadastro de usuário feito com a lib ReactJS. A autenticação de usuário é feita através da verificaçao no JSON server instalado no projeto.
+Formulário de login e cadastro de usuário feito com a lib ReactJS. A autenticação e o cadastro de usuário é são feitos através da verificaçao no JSON server instalado no projeto. Para iniciar o projeto primeiro é preciso iniciar o JSON server com o comando "npm run server" , depois inicie a aplicação com o comando "npm start" e confirme "yes" para que ele rode em um porta diferente da porta em que o JSON server está rodando. Feito isso a aplicação ja estará funcionando.
 
 # Getting Started with Create React App
 
