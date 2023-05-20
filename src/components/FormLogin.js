@@ -27,13 +27,15 @@ const FormLogin = () => {
   const inputPassword = useRef()
   const [showCharPassword, setShowCharPassword] = useState(true)
 
-  const showPassword = () => {
-    inputPassword.current.setAttribute('type','text')
-    setShowCharPassword(false)
-  }
-  const hidePassword = () => {
-    inputPassword.current.setAttribute('type','password')
-    setShowCharPassword(true)
+  const handleVisibilityPassword = () => {
+    if(showCharPassword){
+      inputPassword.current.setAttribute('type','text')
+      setShowCharPassword(false)
+      
+    }else{
+      inputPassword.current.setAttribute('type','password')
+      setShowCharPassword(true)
+    }
   }
 
    const loginUser = (e) => {
@@ -111,8 +113,10 @@ const FormLogin = () => {
                     placeholder="| Password"
                     value={passwordUser}
                   />
-                  {showCharPassword && <BiShow id="visibility-password" onClick={showPassword}/>}
-                  {!showCharPassword && <BiHide id="visibility-password" onClick={hidePassword}/>}
+                  
+                  <div onClick={handleVisibilityPassword} className="visibility-password">
+                     {showCharPassword ? <BiShow/> : <BiHide />}
+                   </div>
                   
               </div>
 
