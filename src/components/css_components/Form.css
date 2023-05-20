@@ -105,9 +105,9 @@ div.wraper-forms{
    color: white;
  }
 
- .wraper #visibility-password{
+ .wraper .visibility-password{
   position:absolute;
-  left: 90%;
+  left: 85%;
   cursor: pointer;
 }
 
